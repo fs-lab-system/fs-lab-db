@@ -12,9 +12,6 @@ create table if not exists benchmark_runs (
   -- Measured endpoint (e.g. /health)
   endpoint text not null,
 
-  -- Cold vs warm start classification
-  request_type text not null check (request_type in ('cold', 'warm')),
-
   -- Response time in milliseconds (integer for simplicity & speed)
   response_time_ms integer not null,
 

@@ -28,3 +28,17 @@ between cold starts (20+ seconds) and warm responses (<500 ms).
 The classification is implemented as a SQL view to keep
 raw benchmark data immutable and allow future adjustments
 without data loss.
+
+### Benchmark Data Model
+
+The `benchmark_runs` table intentionally stores only raw,
+externally observable measurements (e.g. response time,
+status code, timestamp).
+
+Derived concepts such as "cold" or "warm" starts are not
+stored at insert time. Instead, they are inferred via SQL
+views using clearly documented heuristics.
+
+This separation ensures that benchmark data remains
+immutable and that interpretation logic can evolve
+without modifying historical records.
