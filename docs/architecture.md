@@ -33,3 +33,12 @@ A manual test insert was executed directly via SQL to validate:
 - Timestamp handling
 
 Only after successful validation are automated cron inserts allowed.
+
+### Security Note
+
+Row Level Security (RLS) is intentionally disabled for benchmark tables.
+This project does not expose any public or user-facing access and relies
+exclusively on the Supabase Service Role key for controlled write access.
+
+Enabling RLS would add complexity without providing additional security
+benefits for this use case.
